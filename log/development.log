@@ -1,0 +1,298 @@
+  [1m[36m (16.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (11.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20141223062745)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141223062745"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 107.184.58.182 at 2014-12-23 06:32:10 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 28ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 107.184.58.182 at 2014-12-23 06:33:26 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (5.7ms)
+Warning. Error encountered while saving cache f96001ed32e6bd1da9826105c4b243a804e6ddec/scaffolds.css.scssc: can't dump anonymous class #<Class:0x00000003377bb8>
+
+Warning. Error encountered while saving cache f96001ed32e6bd1da9826105c4b243a804e6ddec/users.css.scssc: can't dump anonymous class #<Class:0x00000003377bb8>
+
+Completed 200 OK in 908ms (Views: 903.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/users-069e88c06b889877799890854d7f4c40.css?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/scaffolds-c9bcf33e2ba0a57cd22805dd6824c55f.css?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/application-83617169b2b598361f3fff7e4c53b2df.css?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/jquery-ea2706bc2d0586731b7c00ec2cd0a414.js?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/jquery_ujs-29277b946c1d3754af13672bfec0c660.js?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/turbolinks-3a7cdb8630f3e86770867bd488a098e0.js?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/users-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/assets/application-ef54359dffd3a68f0fcb465e2914a11b.js?body=1" for 107.184.58.182 at 2014-12-23 06:33:27 +0000
+
+
+Started GET "/users/new" for 107.184.58.182 at 2014-12-23 06:33:39 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (36.0ms)
+  Rendered users/new.html.erb within layouts/application (49.7ms)
+Completed 200 OK in 142ms (Views: 135.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 107.184.58.182 at 2014-12-23 06:34:07 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s/l0ZNW1gadP3OnXmqqW9ry7t29ztZAQxvD6abpcQf5D6MTD8CQtqdgw3eXktwuVEyMaLcLyuKnnq20I3m8t/g==", "user"=>{"name"=>"Nick Ma", "email"=>"nicholashma@gmail.com"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Nick Ma"], ["email", "nicholashma@gmail.com"], ["created_at", "2014-12-23 06:34:07.191424"], ["updated_at", "2014-12-23 06:34:07.191424"]]
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-pointatnick.c9.io/users/1
+Completed 302 Found in 22ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/users/1" for 107.184.58.182 at 2014-12-23 06:34:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 98ms (Views: 79.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/edit" for 107.184.58.182 at 2014-12-23 06:34:21 +0000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 104ms (Views: 102.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/1" for 107.184.58.182 at 2014-12-23 06:34:39 +0000
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kO2w+s9DraFjrxMnX0w2uZvZRx83DBdGuZQIZxC9u31g/ABd6tIBr/RDJxUhUavaNEHqXYZLP/+Yz58GdI7XfQ==", "user"=>{"name"=>"Nick Ma", "email"=>"nicholashma@gmail.com"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://rails-tutorial-pointatnick.c9.io/users/1
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 107.184.58.182 at 2014-12-23 06:34:40 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 96ms (Views: 93.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 107.184.58.182 at 2014-12-23 06:34:49 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 87ms (Views: 86.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 107.184.58.182 at 2014-12-23 06:34:50 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 84ms (Views: 82.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 107.184.58.182 at 2014-12-23 06:34:57 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R3cmV5JRPON+y+mwxyTYzoUYew78K5fYVMIixH52g9m3Zpbwt8CQ7ekn3YK5OUWtKoDWTE1sv2F1mbWlGkXv2Q==", "user"=>{"name"=>"Foo Bar", "email"=>"foo@bar.com"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Foo Bar"], ["email", "foo@bar.com"], ["created_at", "2014-12-23 06:34:57.358613"], ["updated_at", "2014-12-23 06:34:57.358613"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-pointatnick.c9.io/users/2
+Completed 302 Found in 21ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/users/2" for 107.184.58.182 at 2014-12-23 06:34:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 84ms (Views: 82.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 107.184.58.182 at 2014-12-23 06:34:59 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 130ms (Views: 128.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/2" for 107.184.58.182 at 2014-12-23 06:35:15 +0000
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"noFadTAaAyFiuq11wdxlJ/DvKn3CAi73v4YUosfa7zlukOrSFYuvL/VWmUe/wfhEX3eHP3NFBk6e3YPDo+mDOQ==", "id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2]]
+  [1m[36m (15.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-pointatnick.c9.io/users
+Completed 302 Found in 21ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/users" for 107.184.58.182 at 2014-12-23 06:35:15 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 98ms (Views: 96.3ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMicroposts (20141223064724)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141223064724"]]
+  [1m[36m (11.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/microposts/new" for 107.184.58.182 at 2014-12-23 06:48:11 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (12.1ms)
+  Rendered microposts/new.html.erb within layouts/application (14.9ms)
+Warning. Error encountered while saving cache f96001ed32e6bd1da9826105c4b243a804e6ddec/microposts.css.scssc: can't dump anonymous class #<Class:0x00000003377bb8>
+
+Completed 200 OK in 312ms (Views: 303.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/microposts-069e88c06b889877799890854d7f4c40.css?body=1" for 107.184.58.182 at 2014-12-23 06:48:11 +0000
+
+
+Started GET "/assets/microposts-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 107.184.58.182 at 2014-12-23 06:48:11 +0000
+
+
+Started GET "/assets/application-f654761ee6a5c52b970be60a1e79500a.js?body=1" for 107.184.58.182 at 2014-12-23 06:48:11 +0000
+
+
+Started POST "/microposts" for 107.184.58.182 at 2014-12-23 06:48:17 +0000
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kSTvC7T9hLEwhPaZvBuLVo2/jDt0SyfmBdk/W/AZ0X1hNV+skWwov6dowqvCBhY1IichecUMD18kgqg6lCq9fQ==", "micropost"=>{"content"=>"First micropost!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "First micropost!"], ["user_id", 1], ["created_at", "2014-12-23 06:48:17.854474"], ["updated_at", "2014-12-23 06:48:17.854474"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+Redirected to https://rails-tutorial-pointatnick.c9.io/microposts/1
+Completed 302 Found in 19ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/microposts/1" for 107.184.58.182 at 2014-12-23 06:48:17 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.3ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 136ms (Views: 132.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts" for 107.184.58.182 at 2014-12-23 06:48:26 +0000
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.4ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 134ms (Views: 132.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/microposts/1/edit" for 107.184.58.182 at 2014-12-23 06:48:28 +0000
+Processing by MicropostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/_form.html.erb (4.7ms)
+  Rendered microposts/edit.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 125ms (Views: 123.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/microposts/1" for 107.184.58.182 at 2014-12-23 06:48:30 +0000
+Processing by MicropostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WPDI9yh2yb/Nyz8DdzGTguX8cGp7RxfIGFWjUbBb3tWo4XhQDedlsVonCzEJLA7hSmTdKMoAP3E5DjQw1Giy1Q==", "micropost"=>{"content"=>"First micropost!", "user_id"=>"1"}, "commit"=>"Update Micropost", "id"=>"1"}
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to https://rails-tutorial-pointatnick.c9.io/microposts/1
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/microposts/1" for 107.184.58.182 at 2014-12-23 06:48:30 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 128ms (Views: 125.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts" for 107.184.58.182 at 2014-12-23 06:48:31 +0000
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 103ms (Views: 100.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts/new" for 107.184.58.182 at 2014-12-23 06:48:34 +0000
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (2.2ms)
+  Rendered microposts/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 105ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/microposts" for 107.184.58.182 at 2014-12-23 06:48:43 +0000
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ffrEjvTzxnFr/WP80TZKK0izIEEBmbSPThYQ4VNTtUmN63Qp0WJqf/wRV86vK9dI5yuNA7DenDZvTYeAN2DZSQ==", "micropost"=>{"content"=>"2nd micropost", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "2nd micropost"], ["user_id", 1], ["created_at", "2014-12-23 06:48:43.966790"], ["updated_at", "2014-12-23 06:48:43.966790"]]
+  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-pointatnick.c9.io/microposts/2
+Completed 302 Found in 18ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/microposts/2" for 107.184.58.182 at 2014-12-23 06:48:44 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered microposts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 97ms (Views: 95.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts" for 107.184.58.182 at 2014-12-23 06:48:45 +0000
+Processing by MicropostsController#index as HTML
+  [1m[36mMicropost Load (0.5ms)[0m  [1mSELECT "microposts".* FROM "microposts"[0m
+  Rendered microposts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 114ms (Views: 111.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/microposts/2" for 107.184.58.182 at 2014-12-23 06:48:47 +0000
+Processing by MicropostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9OgukoEdutZUwLIFYbt9hbjYUp+gpTd8Lih8WAHFdb8E+Z41pIwW2MMshjcfpuDmF0D/3RHiH8UPc+s5ZfYZvw==", "id"=>"2"}
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "microposts" WHERE "microposts"."id" = ?  [["id", 2]]
+  [1m[36m (14.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-pointatnick.c9.io/microposts
+Completed 302 Found in 20ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/microposts" for 107.184.58.182 at 2014-12-23 06:48:47 +0000
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicropost Load (0.5ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
